@@ -70,56 +70,66 @@ const FeaturedProducts = () => {
         </div>
       )}
       <div className="flex flex-col justify-center">
-        <div className="py-[8px] grid md:grid-cols-5 grid-cols-1 md:gap-[30px] gap-[15px] g mx-auto  items-center">
-          {data.map((product, index) => (
-            <Link href={`/selected-product/${product?.id}`} key={index}>
-              <div className="flex flex-col items-center w-[239px] h-[442px] bg-[#FFFFFF]">
-                {" "}
-                <div className="h-[280px]">
-                  <Image
-                    src={product?.images[0]}
-                    height={280}
-                    width={183}
-                    alt="sample"
-                    className="h-[280px] w-full object-contain md:object-fill"
-                  />
-                </div>
-                <div className="px-[25px] pb-[35px] pt-[25px] text-center font-[700] leading-[24px] h-[40%] ">
-                  <h5 className=" text-[16px]  tracking-[0.1px] text-[#252B42]">
-                    {product?.title}
-                  </h5>
-                  <Link
-                    href=""
-                    className="text-[14px] tracking-[0.2px] text-[#737373]"
+        {data && data.length > 0 ? (
+          <>
+            <div className="py-[8px] grid md:grid-cols-5 grid-cols-1 md:gap-[30px] gap-[15px] g mx-auto  items-center">
+              {data.map((product, index) => (
+                <Link href={`/selected-product/${product?.id}`} key={index}>
+                  <div className="flex flex-col items-center w-[239px] h-[442px] bg-[#FFFFFF]">
+                    {" "}
+                    <div className="h-[280px]">
+                      <Image
+                        src={product?.images[0]}
+                        height={280}
+                        width={183}
+                        alt="sample"
+                        className="h-[280px] w-full object-contain md:object-fill"
+                      />
+                    </div>
+                    <div className="px-[25px] pb-[35px] pt-[25px] text-center font-[700] leading-[24px] h-[40%] flex flex-col gap-[10px]">
+                      <h5 className=" text-[16px]  tracking-[0.1px] text-[#252B42]">
+                        {product?.title}
+                      </h5>
+                      <Link
+                        href=""
+                        className="text-[14px] tracking-[0.2px] text-[#737373]"
+                      >
+                        {product?.category}
+                      </Link>
+                      <span className="flex flex-row items-center justify-center py-[5px] px-[3px] gap-[5px] tracking-[0.1px]">
+                        <h5 className="text-[#BDBDBD]">${product?.price}</h5>
+                        <h5 className="text-[#23856D]">
+                          $
+                          {calculateDiscountedPrice(
+                            product?.price,
+                            product?.discountPercentage
+                          )}
+                        </h5>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div>
+              {total?.total !== total?.limit && isHomePage && (
+                <div className="flex justify-center">
+                  <button
+                    className="py-[15px] px-[40px] border-[1px] border-[#23A6F0] text-[#23A6F0] rounded-[5px]"
+                    onClick={handleLoadMore}
                   >
-                    {product?.category}
-                  </Link>
-                  <span className="flex flex-row items-center justify-center py-[5px] px-[3px] gap-[5px] tracking-[0.1px]">
-                    <h5 className="text-[#BDBDBD]">${product?.price}</h5>
-                    <h5 className="text-[#23856D]">
-                      $
-                      {calculateDiscountedPrice(
-                        product?.price,
-                        product?.discountPercentage
-                      )}
-                    </h5>
-                  </span>
+                    {loading ? <Spin /> : "LOAD MORE PRODUCTS"}
+                  </button>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className="text-center mt-4 font-bold md:text-3xl text-lg text-black ">
+            No Products available
+          </div>
+        )}
       </div>
-      {total?.total !== total?.limit && isHomePage && (
-        <div className="flex justify-center">
-          <button
-            className="py-[15px] px-[40px] border-[1px] border-[#23A6F0] text-[#23A6F0] rounded-[5px]"
-            onClick={handleLoadMore}
-          >
-            {loading ? <Spin /> : "LOAD MORE PRODUCTS"}
-          </button>
-        </div>
-      )}
     </div>
   );
 };
