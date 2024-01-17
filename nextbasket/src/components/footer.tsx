@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="font-Montserrat font-[700]">
       <div className="bg-[#FAFAFA] py-[40px] flex flex-col justify-center ">
-        <div className="  flex md:flex-row justify-between mx-auto flex-col w-[80%]">
+        <div className="  flex md:flex-row justify-between mx-auto gap-[11.5px] md:gap-0 flex-col w-[80%]">
           <h3 className="text-[24px] leading-[32px] tracking-[0.1px] text-[#252B42]">
             Bandage
           </h3>

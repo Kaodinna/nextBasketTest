@@ -174,37 +174,48 @@ const Page = ({ params }: { params: { productId: string } }) => {
           <FeaturedProducts />
         </div>
         <div className="py-[50px] flex justify-center">
-          <div className="flex md:flex-row gap-[30px] flex-col">
-            <Image alt="" width={103} height={34} src="/images/vector-2.svg" />
+          <div className="flex md:flex-row md:gap-[30px] flex-col gap-[60px]">
+            <Image
+              alt=""
+              width={103}
+              height={34}
+              src="/images/fabrands.png"
+              className="md:w-[103px] md:h-[34px] w-[148.98px] h-[49.73px]"
+            />
             <Image
               alt=""
               width={83}
               height={58.96}
-              src="/images/vector-3.svg"
+              src="/images/lya.png"
+              className="md:w-[83px] md:h-[58.96px] w-[139px] h-[98.93px]"
             />
             <Image
               alt=""
               width={102}
               height={74.84}
-              src="/images/vector-4.svg"
+              src="/images/flower.png"
+              className="md:w-[102px] md:h-[74.84px] w-[149px] h-[108.77px]"
             />
             <Image
               alt=""
               width={102.98}
               height={41.98}
-              src="/images/vector-5.svg"
+              src="/images/stripe.png"
+              className="md:w-[102.98px] md:h-[41.98px] w-[149px] h-[60px]"
             />
             <Image
               alt=""
               width={103.68}
               height={61.75}
-              src="/images/vector-6.svg"
+              src="/images/aws.png"
+              className="md:w-[103.68px] md:h-[61.75px] w-[152.53px] h-[91.62px]"
             />
             <Image
               alt=""
               width={75.75}
               height={71.86}
-              src="/images/vector-7.svg"
+              src="/images/redis.png"
+              className="md:w-[75.75px] md:h-[71.86px] w-[148.52px] h-[141.72px]"
             />
           </div>
         </div>
