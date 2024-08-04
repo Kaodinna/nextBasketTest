@@ -20,7 +20,7 @@ const FeaturedProducts = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/products/?limit=${limit}`
+        `https://dummyjson.com/products/?limit=${limit}`
       );
       setData(response.data.products);
       setTotal(response.data);

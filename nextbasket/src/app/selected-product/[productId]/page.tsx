@@ -31,7 +31,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/products/${params.productId}`
+        `https://dummyjson.com/products/${params.productId}`
       );
       setData(response.data);
       setValue(response.data.rating);
