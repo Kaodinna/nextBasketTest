@@ -117,10 +117,13 @@ const Navbar = () => {
         >
           <div className="text-[#737373] flex md:flex-row flex-col items-center md:gap-[15px] gap-[30px] md:text-[14px] text-[30px] md:leading-[24px] leading-[45px] tracking-[0.2px]">
             {" "}
-            <Link href="/">Home</Link>
+            <Link href="/" onClick={() => setOpen(false)}>
+              Home
+            </Link>
             <Link
               href="/shop"
               className="flex flex-row items-center gap-[10px]"
+              onClick={() => setOpen(false)}
             >
               Shop{" "}
               <Image
